@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kairos</string>
+    <string name="title_activity_main">Kairos</string>
+    <string name="package_name">mk.semov.kairos</string>
+    <string name="custom_url_scheme">mk.semov.kairos</string>
+</resources>

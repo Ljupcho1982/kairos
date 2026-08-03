@@ -1,0 +1,36 @@
+{
+  "name": "kairos",
+  "version": "1.0.0",
+  "description": "Kairos — electional astrology that picks your moment, grades your calendar, and keeps score of whether it helped. Offline, no account, traditional technique with citations.",
+  "main": "www/js/app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node --test --test-reporter=dot \"tests/*.test.js\"",
+    "test:spec": "node --test --test-reporter=spec \"tests/*.test.js\"",
+    "smoke": "node tests/smoke.js"
+  },
+  "keywords": [
+    "astrology",
+    "electional",
+    "hellenistic",
+    "ephemeris",
+    "offline",
+    "pwa",
+    "capacitor"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/cli": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "astronomy-engine": "^2.1.19"
+  },
+  "devDependencies": {
+    "puppeteer": "^25.4.0",
+    "qrcode": "^1.5.4"
+  }
+}

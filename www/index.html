@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<title>Kairos — when to act</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="onboarding" class="screen onboarding hidden">
+  <div class="ob-inner">
+    <div class="brand"><span class="glyph">⏳</span><h1>Kairos</h1></div>
+    <p class="tagline">Other astrology apps tell you what today means.<br>Kairos tells you <em>when to act</em> — and then checks whether it helped.</p>
+
+    <label class="field">
+      <span>Your name (optional)</span>
+      <input id="ob-name" type="text" placeholder="—" autocomplete="off">
+    </label>
+    <label class="field">
+      <span>Date of birth</span>
+      <input id="ob-date" type="date" required>
+    </label>
+    <label class="field">
+      <span>Time of birth</span>
+      <input id="ob-time" type="time" value="12:00">
+      <small class="hint">If you don't know it, leave 12:00 — Kairos will tell you which techniques it can't run.</small>
+    </label>
+    <label class="field">
+      <span>Place</span>
+      <select id="ob-place"></select>
+    </label>
+    <div class="field row">
+      <label class="half"><span>Latitude</span><input id="ob-lat" type="number" step="0.0001" value="41.9973"></label>
+      <label class="half"><span>Longitude</span><input id="ob-lon" type="number" step="0.0001" value="21.4280"></label>
+    </div>
+    <button id="ob-go" class="primary big">Build my chart</button>
+    <p class="fineprint">Everything stays on this phone. No account, no server, no subscription.</p>
+  </div>
+</div>
+
+<div id="app" class="screen hidden">
+
+  <!-- ============ ASK / ELECT ============ -->
+  <section id="view-ask" class="view active">
+    <header class="topbar"><h2>What are you about to do?</h2></header>
+
+    <div id="intent-picker" class="pad"></div>
+
+    <div id="ask-config" class="pad hidden">
+      <div class="chosen" id="chosen-intent"></div>
+      <div class="card">
+        <h3>When could you do it?</h3>
+        <label class="field"><span>Search the next</span>
+          <select id="cfg-horizon">
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+            <option value="21" selected>21 days</option>
+            <option value="45">45 days</option>
+            <option value="90">90 days</option>
+          </select>
+        </label>
+        <div class="field"><span>Days that work</span>
+          <div id="cfg-days" class="daypick"></div>
+        </div>
+        <div class="field row">
+          <label class="half"><span>From</span><input id="cfg-h1" type="number" min="0" max="23" value="9"></label>
+          <label class="half"><span>Until</span><input id="cfg-h2" type="number" min="1" max="24" value="18"></label>
+        </div>
+        <button id="cfg-run" class="primary big">Find my moment</button>
+        <button id="cfg-back" class="ghost">Choose something else</button>
+      </div>
+    </div>
+
+    <div id="ask-progress" class="pad hidden">
+      <div class="card center">
+        <div class="spinner"></div>
+        <p id="progress-text">Reading the sky…</p>
+        <div class="bar"><div id="progress-bar"></div></div>
+      </div>
+    </div>
+
+    <div id="ask-results" class="pad hidden"></div>
+  </section>
+
+  <!-- ============ CHAPTER ============ -->
+  <section id="view-chapter" class="view">
+    <header class="topbar"><h2>Your chapter</h2></header>
+    <div id="chapter-body" class="pad"></div>
+  </section>
+
+  <!-- ============ CALENDAR / GRADER ============ -->
+  <section id="view-calendar" class="view">
+    <header class="topbar"><h2>Your calendar</h2></header>
+    <div class="pad">
+      <div class="card">
+        <h3>Grade what you already scheduled</h3>
+        <p class="muted">Import a <code>.ics</code> file from any calendar app. Kairos grades each event against the rules for that kind of undertaking and offers a better time where one exists. The file is read on this device and never uploaded.</p>
+        <input type="file" id="ics-file" accept=".ics,text/calendar" hidden>
+        <button id="ics-pick" class="primary">Choose an .ics file</button>
+      </div>
+      <div id="calendar-body"></div>
+    </div>
+  </section>
+
+  <!-- ============ LEDGER ============ -->
+  <section id="view-ledger" class="view">
+    <header class="topbar"><h2>The ledger</h2></header>
+    <div id="ledger-body" class="pad"></div>
+  </section>
+
+  <!-- ============ SETTINGS ============ -->
+  <section id="view-settings" class="view">
+    <header class="topbar"><h2>Settings</h2></header>
+    <div id="settings-body" class="pad"></div>
+  </section>
+
+  <nav class="tabbar">
+    <button data-view="ask" class="tab active"><span>⏳</span>Elect</button>
+    <button data-view="chapter" class="tab"><span>📖</span>Chapter</button>
+    <button data-view="calendar" class="tab"><span>📅</span>Calendar</button>
+    <button data-view="ledger" class="tab"><span>⚖️</span>Ledger</button>
+    <button data-view="settings" class="tab"><span>⚙️</span>Settings</button>
+  </nav>
+</div>
+
+<div id="sheet" class="sheet hidden"><div class="sheet-inner"><button class="sheet-close">✕</button><div id="sheet-body"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+
+<script src="vendor/astronomy.browser.min.js"></script>
+<script src="js/astro/ephem.js"></script>
+<script src="js/astro/dignity.js"></script>
+<script src="js/astro/aspects.js"></script>
+<script src="js/astro/hours.js"></script>
+<script src="js/astro/timelords.js"></script>
+<script src="js/election/intents.js"></script>
+<script src="js/election/score.js"></script>
+<script src="js/election/search.js"></script>
+<script src="js/core/db.js"></script>
+<script src="js/core/stats.js"></script>
+<script src="js/core/ics.js"></script>
+<script src="js/core/places.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

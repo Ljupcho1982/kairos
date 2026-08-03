@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kairos",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server", "www", "-p", "5178", "-c-1"],
+      "port": 5178
+    }
+  ]
+}

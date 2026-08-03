@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Kairos — when to act</title>
+<meta name="description" content="Electional astrology that picks your moment, grades your calendar, and keeps score of whether it helped. Free Android app, fully offline, no account."/>
+<meta property="og:title" content="Kairos — when to act"/>
+<meta property="og:description" content="Every astrology app tells you what today means. Kairos tells you when to act — and then checks whether it helped."/>
+<meta property="og:image" content="promo-linkedin-1200x630.png"/>
+<meta property="og:type" content="website"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#e8ecf8;--dim:#9aa6c8;--faint:#6b769b;--gold:#e8c479;--accent:#8ea6ff;
+        --card:#151d36;--line:#253158;--good:#57c98a;--bad:#e5748a}
+  body{min-height:100vh;background:radial-gradient(1100px 620px at 50% -10%,#1e2c56 0%,#0a0e1a 60%) fixed;
+       color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+       display:flex;flex-direction:column;align-items:center;padding:40px 20px 64px;text-align:center;line-height:1.55}
+  .glyph{font-size:64px;line-height:1}
+  h1{font-size:2.6rem;font-weight:700;letter-spacing:-1px;margin-top:8px}
+  .kick{color:var(--gold);font-size:.76rem;letter-spacing:3.4px;text-transform:uppercase;margin-top:8px;font-weight:600}
+  p.lead{color:var(--dim);margin-top:18px;max-width:540px;font-size:1.06rem}
+  p.lead b{color:var(--ink)}
+  a.dl{display:inline-flex;align-items:center;gap:10px;margin-top:30px;
+       background:linear-gradient(180deg,#8ea6ff,#6a83e6);color:#08122e;font-weight:800;font-size:1.12rem;
+       padding:17px 34px;border-radius:999px;text-decoration:none;box-shadow:0 14px 38px rgba(142,166,255,.32)}
+  a.dl:active{transform:scale(.98)}
+  .size{color:var(--faint);font-size:.8rem;margin-top:11px}
+  .qr{margin-top:22px;background:#fff;padding:10px;border-radius:14px;display:inline-block}
+  .qr img{display:block;width:132px;height:132px;image-rendering:pixelated}
+  .qr-cap{color:var(--faint);font-size:.72rem;margin-top:7px}
+  .cats{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:26px;max-width:640px}
+  .cat{background:rgba(142,166,255,.1);border:1px solid rgba(142,166,255,.28);color:#c3cfff;
+       border-radius:999px;padding:8px 15px;font-size:.85rem}
+  section{max-width:640px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+          border-radius:18px;padding:20px 22px;margin-top:20px}
+  section h3{font-size:.76rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--dim);margin-bottom:12px}
+  section ol{margin-left:19px;line-height:1.85;font-size:.95rem}
+  .feat{display:grid;gap:15px}
+  .feat div{display:flex;gap:12px;align-items:flex-start}
+  .feat .i{font-size:20px;line-height:1.3;flex:0 0 26px}
+  .feat b{display:block;font-size:.97rem;margin-bottom:1px}
+  .feat span.t{color:var(--dim);font-size:.88rem}
+  .demo{margin-top:26px;width:100%;max-width:340px;border-radius:20px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .score-demo{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.84rem;line-height:1.9}
+  .score-demo .p{color:var(--good)}
+  .score-demo .n{color:var(--bad)}
+  .score-demo .s{color:var(--faint);font-size:.76rem}
+  .disc{color:var(--faint);font-size:.76rem;margin-top:28px;max-width:560px;line-height:1.6}
+  a{color:var(--accent)}
+  footer{margin-top:30px;color:var(--faint);font-size:.78rem}
+</style></head>
+<body>
+
+  <div class="glyph">⏳</div>
+  <h1>Kairos</h1>
+  <div class="kick">Electional astrology</div>
+  <p class="lead">Every astrology app tells you <i>what today means</i>.<br>
+     Kairos tells you <b>when to act</b> — and then checks whether it helped.</p>
+
+  <a class="dl" href="https://github.com/Ljupcho1982/kairos/releases/latest/download/Kairos-debug.apk">⬇ Download for Android</a>
+  <div class="size">~6 MB · debug build · Android 6.0+</div>
+
+  <div class="qr"><img alt="QR code to download Kairos" src="qr-download.png"></div>
+  <div class="qr-cap">Scan to download on your phone</div>
+
+  <div class="cats">
+    <span class="cat">📵 Works in flight mode</span>
+    <span class="cat">🔒 No account, no server</span>
+    <span class="cat">💸 No subscription</span>
+    <span class="cat">📖 Sources cited</span>
+    <span class="cat">🧪 167 tests</span>
+  </div>
+
+  <video class="demo" src="kairos-promo.mp4" autoplay muted loop playsinline></video>
+
+  <section>
+    <h3>What it does</h3>
+    <div class="feat">
+      <div><span class="i">⏳</span><span><b>Elect</b><span class="t">Tell it what you're about to do — sign a lease, ask for a raise, start a journey — and when you're free. It scans the real sky quarter-hour by quarter-hour, refines the best candidates to the minute, and hands you your windows.</span></span></div>
+      <div><span class="i">📖</span><span><b>Chapter</b><span class="t">Annual profections, firdaria and zodiacal releasing — the traditional time-lord techniques that say which topics are live in your life right now.</span></span></div>
+      <div><span class="i">📅</span><span><b>Calendar</b><span class="t">Import a .ics file and it grades the meetings you already scheduled, then offers a better time for the badly-timed ones.</span></span></div>
+      <div><span class="i">⚖️</span><span><b>Ledger</b><span class="t">Rate how each elected moment actually went. Kairos compares it against the times you picked yourself and reports the difference with a confidence interval — including when there isn't one.</span></span></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Every point names its rule and its source</h3>
+    <div class="score-demo">
+      <div><span class="p">+6.2</span> the Moon next applies to Jupiter by sextile<br>
+        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dorotheus V — the Moon's next aspect shows the outcome</span></div>
+      <div><span class="p">+4.0</span> Jupiter is angular (house 10)<br>
+        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bonatti — a benefic on an angle strengthens the election</span></div>
+      <div><span class="n">−14</span> the Moon is void of course until 11:01 tomorrow<br>
+        <span class="s">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lilly, Christian Astrology p.112</span></div>
+    </div>
+    <p style="color:var(--dim);font-size:.88rem;margin-top:14px">No black-box "cosmic energy score". The negatives are always shown next to the positives — a score whose costs are hidden is a score nobody should trust.</p>
+  </section>
+
+  <section>
+    <h3>An honest detail</h3>
+    <p style="color:var(--dim);font-size:.9rem">"Mercury retrograde" is not a universal veto here. The tradition applies it to contracts, purchases, messages and travel — so Kairos does too, and tells you plainly when it <i>doesn't</i> apply to what you're doing.</p>
+    <p style="color:var(--dim);font-size:.9rem;margin-top:10px">The void-of-course Moon has two defensible definitions, and they differ by a lot: on 13 August 2026 the traditional reading gives a 43-hour void and the modern one 19, because the Moon squares Uranus in between. Kairos defaults to the traditional seven planets, puts the choice in Settings, and explains the consequence instead of picking silently.</p>
+  </section>
+
+  <section>
+    <h3>Install</h3>
+    <ol>
+      <li>Tap <b>Download for Android</b> above.</li>
+      <li>Open the downloaded file.</li>
+      <li>If prompted, allow <b>Install from unknown sources</b> for your browser.</li>
+      <li>Tap <b>Install</b>, then open Kairos.</li>
+    </ol>
+  </section>
+
+  <p class="disc">Kairos is not medical, legal or financial advice. It will never ask you to move a date your doctor, your lawyer or the law has set. Planetary positions come from <a href="https://github.com/cosinekitty/astronomy">astronomy-engine</a> (MIT) and are accurate to about one arcminute. Debug build, for testing and feedback.</p>
+
+  <footer>Source on <a href="https://github.com/Ljupcho1982/kairos">GitHub</a></footer>
+
+</body></html>

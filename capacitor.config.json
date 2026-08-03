@@ -1,0 +1,11 @@
+{
+  "appId": "mk.semov.kairos",
+  "appName": "Kairos",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#0a0e1a"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
